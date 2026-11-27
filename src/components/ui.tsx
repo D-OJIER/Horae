@@ -5,14 +5,19 @@ import { useHorae, type ModeFilter } from '../context';
 import { SyncButton } from './SyncDialog';
 
 /** Title, mode switcher and the Olympus / Underworld toggle. */
-export function Header({ title, subtitle }: { title: string; subtitle: string }) {
+export function Header({ index, title, subtitle }: { index: string; title: string; subtitle: string }) {
   const { realm, setRealm, mode, setMode, offsetDays } = useHorae();
   const filters: ModeFilter[] = ['all', ...MODES];
   return (
     <header className="header">
       <div className="header-top">
-        <div>
-          <h1 className="title">{title}</h1>
+        <div className="heading">
+          <p className="kicker">
+            <span>{index}</span> {realm === 'olympus' ? 'Olympus' : 'Underworld'}
+          </p>
+          <h1 className="title" data-text={title}>
+            {title}
+          </h1>
           <p className="subtitle">{subtitle}</p>
         </div>
         <SyncButton />

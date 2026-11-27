@@ -5,7 +5,10 @@ A to-do app that sorts every task by month, day and hour, and keeps the tasks yo
 - **Season / Dawn / Hora**: month, day and hour views. Labours (monthly goals) break down into threads for a day, which you drag onto hour slots.
 - **Olympus / Underworld**: the same views for planned and for missed threads. At midnight, unfinished threads descend but keep their original date and hour.
 - **Charon's crossing**: on the first open of each day, carry last night's fallen threads back or let them drink from Lethe. After 3 crossings, Charon asks you to split the thread, move it to a later Season, or let it go.
+- **Rites**: a weekly habit sheet. Bind a recurring habit to some weekdays, mark each day you keep it, and watch the streak. The Underworld lists the days a rite was broken. (Rites stay in this browser; they are not part of Gist sync yet.)
 - **Athena / Hestia / Hermes**: work, personal and neutral modes, each with its own look.
+
+The look follows the Mythic Interface brief in [DESIGN.md](DESIGN.md).
 
 It is a static React app (Vite + TypeScript) with no server of its own. Threads are saved in your browser, and can optionally sync across devices through a secret GitHub Gist in your own account.
 

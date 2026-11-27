@@ -31,6 +31,7 @@ export function Dawn() {
   return (
     <>
       <Header
+        index="II"
         title={olympus ? 'Dawn' : 'Fallen Dawn'}
         subtitle={olympus ? 'What must happen today' : 'Threads missed on this day'}
       />

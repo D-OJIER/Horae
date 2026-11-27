@@ -37,8 +37,8 @@ export function Charon() {
   return (
     <div className="charon" role="dialog" aria-modal="true" aria-labelledby="charon-title">
       <div className="page">
-        <p className="kicker">CHARON’S CROSSING</p>
-        <h1 id="charon-title">
+        <p className="kicker"><span>☾</span> Charon’s crossing</p>
+        <h1 id="charon-title" className="title">
           {souls.length === 0
             ? 'The ferry is empty.'
             : `${souls.length} thread${souls.length === 1 ? '' : 's'} fell in the night.`}
@@ -55,9 +55,16 @@ export function Charon() {
           <div className="bank far" />
           <div className="ferry">
             <span className="souls">{'✦'.repeat(Math.min(souls.length, 6))}</span>
-            <span className="boat">🛶</span>
+            <svg className="boat" viewBox="0 0 120 60">
+              <path d="M4 38h112l-18 16H20Z" />
+              <path d="M58 8v30M50 18h8" className="mast" />
+              <path d="M70 4 52 58" className="pole" />
+            </svg>
           </div>
-          <div className="water">~ S T Y X ~</div>
+          <svg className="water" viewBox="0 0 400 40" preserveAspectRatio="none">
+            <path d="M0 10 Q25 0 50 10 T100 10 T150 10 T200 10 T250 10 T300 10 T350 10 T400 10 T450 10 T500 10V40H0Z" />
+          </svg>
+          <span className="styx">S · T · Y · X</span>
         </div>
         <div style={{ display: 'grid', gap: 12 }}>
           {souls.map((t) => (

@@ -62,6 +62,7 @@ export function Season() {
   return (
     <>
       <Header
+        index="I"
         title={olympus ? 'Season' : 'Fallen Season'}
         subtitle={olympus ? 'Labours for the month' : 'Labours that slipped this month'}
       />

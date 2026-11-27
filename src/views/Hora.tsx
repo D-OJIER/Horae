@@ -112,6 +112,7 @@ export function Hora() {
   return (
     <>
       <Header
+        index="III"
         title={olympus ? 'Hora' : 'Fallen Hours'}
         subtitle={olympus ? 'Drag threads onto an hour' : 'Where planned hours went undone'}
       />

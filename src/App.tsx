@@ -4,12 +4,15 @@ import { HoraeProvider } from './state';
 import { Charon } from './views/Charon';
 import { Dawn } from './views/Dawn';
 import { Hora } from './views/Hora';
+import { Rites } from './views/Rites';
+import { Horologion } from './components/Horologion';
 import { Season } from './views/Season';
 
 const TABS = [
-  { id: 'season', label: 'Season', glyph: '❖' },
-  { id: 'dawn', label: 'Dawn', glyph: '☀︎' },
-  { id: 'hora', label: 'Hora', glyph: '⌛︎' },
+  { id: 'season', label: 'Season', glyph: 'I' },
+  { id: 'dawn', label: 'Dawn', glyph: 'II' },
+  { id: 'hora', label: 'Hora', glyph: 'III' },
+  { id: 'rites', label: 'Rites', glyph: 'IV' },
 ] as const;
 type Tab = (typeof TABS)[number]['id'];
 
@@ -38,12 +41,16 @@ function Shell() {
 
   return (
     <div className="app" data-mode={mode} data-realm={shownRealm}>
+      <div className="grain" aria-hidden />
+      {/* An angular slab crosses the screen whenever the view or the realm changes. */}
+      <div key={`${tab}-${shownRealm}-${charonDue}`} className="wipe" aria-hidden />
       {charonDue ? (
         <Charon />
       ) : (
         <>
-          <main className="page">
-            {tab === 'season' ? <Season /> : tab === 'dawn' ? <Dawn /> : <Hora />}
+          <Horologion view={tab} />
+          <main className="page" key={`${tab}-${shownRealm}`}>
+            {tab === 'season' ? <Season /> : tab === 'dawn' ? <Dawn /> : tab === 'hora' ? <Hora /> : <Rites />}
           </main>
           <nav className="tabbar" aria-label="Views">
             {TABS.map((t) => (
